@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAUM INC — 시안 A · 미니멀 화이트 (DNL STUDIO)</title>
+<!-- 시안 A: SEL형 미니멀 화이트 · 카피/수치/연락처는 placeholder, 프로젝트명은 현 사이트 확인분 -->
+<style>
+:root{
+  --bg:#ffffff; --ink:#111111; --ink2:#666666; --line:#e6e6e6;
+  --sans:'Helvetica Neue','Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1440px;margin:0 auto;padding:0 48px}
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s;padding:28px 0;mix-blend-mode:difference;color:#fff}
+header.scrolled{mix-blend-mode:normal;color:var(--ink);background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:16px 0;border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:20px;font-weight:700;letter-spacing:.16em}
+.logo small{display:block;font-size:8px;font-weight:400;letter-spacing:.34em;opacity:.7;margin-top:3px}
+nav ul{display:flex;gap:36px}
+nav a{font-size:12px;letter-spacing:.18em;font-weight:500;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:currentColor;transition:.3s}
+nav a:hover::after{width:100%}
+/* hero */
+.hero{position:relative;height:100vh;min-height:640px;overflow:hidden;background:#0c0c0c}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
+.slide.on{opacity:1}
+.slide .ph{position:absolute;inset:0;transform:scale(1.06);transition:transform 7s linear}
+.slide.on .ph{transform:scale(1)}
+.ph-1{background:linear-gradient(160deg,#3a3f45 0%,#181b1e 55%,#0c0d0f 100%)}
+.ph-1::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 45% at 68% 30%,rgba(214,196,160,.32),transparent 70%)}
+.ph-2{background:linear-gradient(150deg,#43413c 0%,#22201c 60%,#101010 100%)}
+.ph-2::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 50% at 30% 40%,rgba(180,200,210,.25),transparent 70%)}
+.ph-3{background:linear-gradient(170deg,#37393e 0%,#1c1e22 50%,#0b0c0e 100%)}
+.ph-3::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 40% at 55% 65%,rgba(200,180,150,.28),transparent 72%)}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.08) 45%,rgba(0,0,0,.42))}
+.hero-txt{position:absolute;left:48px;bottom:110px;color:#fff;z-index:5}
+.hero-txt .eyebrow{font-size:11px;letter-spacing:.4em;opacity:.75;margin-bottom:22px}
+.hero-txt h1{font-size:clamp(44px,7.2vw,108px);line-height:.98;font-weight:700;letter-spacing:-.01em}
+.hero-txt h1 span{display:block}
+.hero-txt p{margin-top:26px;font-size:14px;letter-spacing:.02em;line-height:1.8;opacity:.85;max-width:420px}
+.hero-meta{position:absolute;right:48px;bottom:110px;color:#fff;text-align:right;z-index:5}
+.hero-meta .pj{font-size:13px;letter-spacing:.08em;opacity:.9;min-height:18px}
+.hero-meta .idx{font-size:11px;letter-spacing:.3em;opacity:.6;margin-top:10px}
+.hero-bar{position:absolute;left:48px;right:48px;bottom:64px;display:flex;gap:8px;z-index:5}
+.hero-bar i{flex:1;height:1px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
+.hero-bar i b{position:absolute;left:0;top:0;bottom:0;width:0;background:#fff}
+.hero-bar i.on b{width:100%;transition:width 6s linear}
+.scroll-hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);color:#fff;font-size:10px;letter-spacing:.4em;opacity:.6;z-index:5;animation:bob 2.4s infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
+/* sections */
+section{padding:130px 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:64px}
+.sec-head h2{font-size:13px;letter-spacing:.42em;font-weight:600;color:var(--ink)}
+.sec-head a{font-size:12px;letter-spacing:.2em;color:var(--ink2)}
+.statement{padding:150px 0;border-bottom:1px solid var(--line)}
+.statement p{font-size:clamp(24px,3.1vw,44px);line-height:1.5;font-weight:500;letter-spacing:-.01em;max-width:1040px}
+.statement p em{font-style:normal;color:#b5b5b5}
+.statement .meta{margin-top:44px;font-size:12px;letter-spacing:.22em;color:var(--ink2)}
+/* works */
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:pointer;background:#f2f2f2}
+.card .art{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.6,.2,1)}
+.card:hover .art{transform:scale(1.05)}
+.a1{background:linear-gradient(155deg,#4a4e54,#1f2226 70%)}.a1::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 40% at 70% 25%,rgba(215,200,170,.3),transparent)}
+.a2{background:linear-gradient(145deg,#514d46,#26231e 65%)}.a2::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 45% at 30% 35%,rgba(190,205,215,.24),transparent)}
+.a3{background:linear-gradient(165deg,#40444a,#191b1f 60%)}.a3::after{content:"";position:absolute;inset:0;background:radial-gradient(45% 40% at 55% 60%,rgba(205,185,155,.26),transparent)}
+.a4{background:linear-gradient(150deg,#4d4a45,#211f1b 65%)}.a4::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 45% at 65% 40%,rgba(210,215,220,.22),transparent)}
+.a5{background:linear-gradient(160deg,#454850,#1d1f24 60%)}.a5::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 40% at 40% 30%,rgba(220,205,175,.28),transparent)}
+.a6{background:linear-gradient(140deg,#4b4740,#231f1a 70%)}.a6::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 50% at 60% 55%,rgba(185,200,205,.22),transparent)}
+.card .tag{position:absolute;top:18px;left:18px;font-size:10px;letter-spacing:.26em;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.35);padding:6px 10px;backdrop-filter:blur(4px)}
+.card .info{position:absolute;left:0;right:0;bottom:0;padding:26px 22px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));opacity:0;transform:translateY(10px);transition:.45s}
+.card:hover .info{opacity:1;transform:none}
+.card .info h3{font-size:16px;font-weight:600;letter-spacing:.02em;line-height:1.4}
+.card .info span{font-size:11px;letter-spacing:.2em;opacity:.75;display:block;margin-top:6px}
+.ph-note{margin-top:28px;font-size:11px;letter-spacing:.12em;color:#b8b8b8}
+/* categories */
+.cats{border-top:1px solid var(--line)}
+.cat-row{display:flex;align-items:center;justify-content:space-between;padding:44px 8px;border-bottom:1px solid var(--line);transition:.35s;cursor:pointer}
+.cat-row:hover{padding-left:28px;background:#fafafa}
+.cat-row .l{display:flex;align-items:baseline;gap:26px}
+.cat-row .no{font-size:11px;letter-spacing:.2em;color:#bbb}
+.cat-row h3{font-size:clamp(24px,3vw,40px);font-weight:600;letter-spacing:.01em}
+.cat-row .r{display:flex;align-items:center;gap:40px}
+.cat-row .cnt{font-size:12px;letter-spacing:.24em;color:var(--ink2)}
+.cat-row .arw{font-size:20px;transition:.35s}
+.cat-row:hover .arw{transform:translateX(8px)}
+/* process */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.proc{border-top:1px solid var(--ink);padding-top:26px}
+.proc .no{font-size:11px;letter-spacing:.24em;color:#bbb}
+.proc h3{font-size:17px;font-weight:600;margin:16px 0 12px;letter-spacing:.06em}
+.proc p{font-size:13px;line-height:1.8;color:var(--ink2)}
+/* contact */
+.contact{background:#0d0d0d;color:#fff;text-align:center;padding:170px 0}
+.contact .eyebrow{font-size:11px;letter-spacing:.42em;opacity:.6}
+.contact h2{font-size:clamp(38px,6vw,84px);font-weight:700;letter-spacing:-.01em;margin:30px 0 46px;line-height:1.05}
+.contact a.btn{display:inline-block;border:1px solid rgba(255,255,255,.5);padding:18px 54px;font-size:12px;letter-spacing:.3em;transition:.35s}
+.contact a.btn:hover{background:#fff;color:#111}
+/* footer */
+footer{padding:70px 0 40px;border-top:1px solid var(--line)}
+.ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.ft .col h4{font-size:10px;letter-spacing:.3em;color:#aaa;margin-bottom:14px}
+.ft .col p{font-size:13px;line-height:1.9;color:var(--ink2)}
+.copy{margin-top:56px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#b5b5b5}
+/* reveal */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+/* draft badge */
+.draft{position:fixed;right:16px;bottom:16px;z-index:200;background:#111;color:#fff;font-size:10px;letter-spacing:.18em;padding:8px 14px;opacity:.85}
+@media(max-width:900px){
+  .wrap{padding:0 22px}
+  nav{display:none}
+  .hero-txt{left:22px;bottom:130px}
+  .hero-meta{display:none}
+  .hero-bar{left:22px;right:22px}
+  .works-grid{grid-template-columns:1fr 1fr}
+  .proc-grid{grid-template-columns:1fr 1fr;gap:36px 20px}
+  section{padding:90px 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap hd">
+    <a class="logo" href="#">RAUM INC<small>INTERIOR &amp; CONSTRUCTION</small></a>
+    <nav><ul>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#work">WORK</a></li>
+      <li><a href="#process">PROCESS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+      <li><a href="#">RECRUIT</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="slide on"><div class="ph ph-1"></div></div>
+  <div class="slide"><div class="ph ph-2"></div></div>
+  <div class="slide"><div class="ph ph-3"></div></div>
+  <div class="veil"></div>
+  <div class="hero-txt">
+    <div class="eyebrow">INTERIOR &amp; CONSTRUCTION</div>
+    <h1><span>SPACE,</span><span>PRECISELY</span><span>BUILT.</span></h1>
+    <p>공간의 완성도가 곧 브랜드가 됩니다.<br>라움은 설계부터 시공까지, 끝의 디테일로 증명합니다.</p>
+  </div>
+  <div class="hero-meta">
+    <div class="pj" id="pj">LG Energy Solution Ochang Entral Park</div>
+    <div class="idx" id="idx">01 — 03</div>
+  </div>
+  <div class="hero-bar" id="bar"><i class="on"><b></b></i><i><b></b></i><i><b></b></i></div>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- STATEMENT -->
+<div class="wrap statement rv" id="about">
+  <p>대형 오피스에서 병원, 리조트까지 —<br>
+  라움아이앤씨는 <em>공간의 목적</em>을 읽고,<br>
+  설계·시공의 전 과정을 하나의 기준으로 완성합니다.</p>
+  <div class="meta">SINCE 20〇〇 · PROJECTS 〇〇〇+ · SEOUL, KOREA　※ 수치는 placeholder</div>
+</div>
+
+<!-- WORKS -->
+<section class="wrap" id="work">
+  <div class="sec-head rv"><h2>SELECTED WORKS</h2><a href="#">VIEW ALL →</a></div>
+  <div class="works-grid">
+    <div class="card rv"><div class="art a1"></div><span class="tag">OFFICE</span><div class="info"><h3>LG Energy Solution<br>Ochang Entral Park</h3><span>OFFICE · LOUNGE</span></div></div>
+    <div class="card rv"><div class="art a2"></div><span class="tag">HOSPITALITY</span><div class="info"><h3>NH Life<br>Seorak Training Center</h3><span>HOSPITALITY · STAY</span></div></div>
+    <div class="card rv"><div class="art a3"></div><span class="tag">OFFICE</span><div class="info"><h3>DAMG<br>Dong-A Media Center</h3><span>OFFICE · MEDIA</span></div></div>
+    <div class="card rv"><div class="art a4"></div><span class="tag">OFFICE</span><div class="info"><h3>LG Display Twin Tower<br>Smart Office</h3><span>OFFICE · SMART WORK</span></div></div>
+    <div class="card rv"><div class="art a5"></div><span class="tag">MEDICAL</span><div class="info"><h3>Theragen Health</h3><span>MEDICAL · CLINIC</span></div></div>
+    <div class="card rv"><div class="art a6"></div><span class="tag">HOUSING</span><div class="info"><h3>Residence Project<br>(Placeholder)</h3><span>HOUSING</span></div></div>
+  </div>
+  <p class="ph-note rv">※ 이미지 영역은 실제 시공 사진으로 교체됩니다 (그라디언트 = placeholder)</p>
+</section>
+
+<!-- CATEGORIES -->
+<section class="wrap cats-sec">
+  <div class="sec-head rv"><h2>WORK BY CATEGORY</h2></div>
+  <div class="cats rv">
+    <div class="cat-row"><div class="l"><span class="no">01</span><h3>Hospitality</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
+    <div class="cat-row"><div class="l"><span class="no">02</span><h3>Housing</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
+    <div class="cat-row"><div class="l"><span class="no">03</span><h3>Medical &amp; Education</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
+    <div class="cat-row"><div class="l"><span class="no">04</span><h3>Office</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="wrap" id="process">
+  <div class="sec-head rv"><h2>PROCESS</h2></div>
+  <div class="proc-grid">
+    <div class="proc rv"><span class="no">01</span><h3>CONSULTING</h3><p>공간의 목적과 조건을 정의하고 방향을 설계합니다.</p></div>
+    <div class="proc rv"><span class="no">02</span><h3>DESIGN</h3><p>브랜드와 사용자를 반영한 공간 디자인을 제안합니다.</p></div>
+    <div class="proc rv"><span class="no">03</span><h3>CONSTRUCTION</h3><p>일정과 품질 기준을 지키는 정밀한 시공을 수행합니다.</p></div>
+    <div class="proc rv"><span class="no">04</span><h3>CARE</h3><p>완공 이후의 관리까지 책임지고 함께합니다.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap rv">
+    <div class="eyebrow">CONTACT</div>
+    <h2>START YOUR<br>PROJECT</h2>
+    <a class="btn" href="#">GET IN TOUCH</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="col"><h4>OFFICE</h4><p>서울특별시 〇〇구 〇〇로 〇〇 (placeholder)</p></div>
+      <div class="col"><h4>CONTACT</h4><p>T. 0〇-〇〇〇〇-〇〇〇〇<br>E. contact@rauminterior.co.kr (placeholder)</p></div>
+      <div class="col"><h4>MENU</h4><p>About · Work · Process · Contact · Recruit</p></div>
+    </div>
+    <div class="copy"><span>© RAUM INC. All Rights Reserved.</span><span>DESIGN DRAFT BY DNL STUDIO</span></div>
+  </div>
+</footer>
+
+<div class="draft">시안 A · 미니멀 화이트 — DRAFT</div>
+
+<script>
+// header state
+const hd=document.getElementById('hd');
+addEventListener('scroll',()=>{hd.classList.toggle('scrolled',scrollY>60)});
+// hero slider
+const slides=[...document.querySelectorAll('.slide')];
+const bars=[...document.querySelectorAll('#bar i')];
+const pjs=['LG Energy Solution Ochang Entral Park','NH Life Seorak Training Center','DAMG Dong-A Media Center'];
+let cur=0;
+function go(n){
+  slides[cur].classList.remove('on');bars[cur].classList.remove('on');
+  cur=n%slides.length;
+  slides[cur].classList.add('on');
+  bars.forEach((b,i)=>{b.classList.toggle('on',i===cur);b.querySelector('b').style.width=i<cur?'100%':(i===cur?'':'0')});
+  document.getElementById('pj').textContent=pjs[cur];
+  document.getElementById('idx').textContent='0'+(cur+1)+' — 03';
+}
+setInterval(()=>go(cur+1),6000);
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
