@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAUM INC — 시안 C · 다크 프리미엄 (DNL STUDIO)</title>
+<title>ABOUT — RAUM INC 시안 C (DNL STUDIO)</title>
 <!-- 시안 C: 다크 프리미엄 · 대형 프로젝트 중후감 · 카피/수치/연락처는 placeholder -->
 <style>
 :root{
@@ -137,13 +137,96 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .feature .cap{left:20px;bottom:20px}
   section{padding:92px 0}
 }
+
+/* ── sub pages ── */
+.sp-hero{padding:190px 0 70px;border-bottom:1px solid var(--line)}
+.sp-crumb{font-size:11px;letter-spacing:.3em;color:#8f8c86;margin-bottom:24px}
+.sp-crumb a:hover{color:var(--gold)}
+.sp-title{font-family:var(--serif);font-size:clamp(38px,5.6vw,72px);font-weight:500;line-height:1.08;letter-spacing:.01em}
+.sp-lead{margin-top:22px;font-size:15px;line-height:1.9;color:#8f8c86;max-width:600px}
+.sp-sec{padding:110px 0}
+.sp-sec.tight{padding:64px 0}
+.sp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line)}
+.sp-stat{border-bottom:1px solid var(--line);padding:34px 8px}
+.sp-stat b{display:block;font-size:clamp(30px,3.4vw,50px);font-weight:700;font-family:var(--serif)}
+.sp-stat span{font-size:11px;letter-spacing:.24em;color:#8f8c86;display:block;margin-top:10px}
+.sp-note{font-size:11px;letter-spacing:.12em;color:#8f8c86;margin-top:18px}
+.sp-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:38px}
+.sp-tab{font-family:inherit;font-size:11px;letter-spacing:.2em;padding:11px 18px;border:1px solid var(--line);background:transparent;color:#8f8c86;cursor:pointer;transition:.3s}
+.sp-tab.on,.sp-tab:hover{background:var(--gold);border-color:var(--gold);color:#0d0d0e}
+.sp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sp-card{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#141416}
+.sp-card .sp-art{transition:transform .7s cubic-bezier(.2,.6,.2,1)}
+.sp-card:hover .sp-art{transform:scale(1.05)}
+.sp-art{position:absolute;inset:0}
+.sp-art::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),transparent 44%),linear-gradient(180deg,transparent 56%,rgba(255,255,255,.07) 57%,transparent 60%)}
+.g1{background:linear-gradient(155deg,#4a4e54,#1f2226 70%)}.g1::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 40% at 70% 25%,rgba(215,200,170,.3),transparent)}
+.g2{background:linear-gradient(145deg,#514d46,#26231e 65%)}.g2::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 45% at 30% 35%,rgba(190,205,215,.24),transparent)}
+.g3{background:linear-gradient(165deg,#40444a,#191b1f 60%)}.g3::after{content:"";position:absolute;inset:0;background:radial-gradient(45% 40% at 55% 60%,rgba(205,185,155,.26),transparent)}
+.g4{background:linear-gradient(150deg,#4d4a45,#211f1b 65%)}.g4::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 45% at 65% 40%,rgba(210,215,220,.22),transparent)}
+.g5{background:linear-gradient(160deg,#454850,#1d1f24 60%)}.g5::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 40% at 40% 30%,rgba(220,205,175,.28),transparent)}
+.g6{background:linear-gradient(140deg,#4b4740,#231f1a 70%)}.g6::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 50% at 60% 55%,rgba(185,200,205,.22),transparent)}
+.sp-cap{position:absolute;left:0;right:0;bottom:0;padding:22px 20px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.66));z-index:2}
+.sp-cap .t{font-size:10px;letter-spacing:.26em;color:var(--gold)}
+.sp-cap h3{font-size:15px;font-weight:600;line-height:1.45;margin-top:8px}
+.sp-ph{position:relative;overflow:hidden;background:#141416}
+.sp-wide{aspect-ratio:21/9}
+.sp-two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sp-two .sp-ph{aspect-ratio:4/3}
+.sp-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line);margin-top:48px}
+.sp-meta>div{border-bottom:1px solid var(--line);padding:22px 8px}
+.sp-meta span{display:block;font-size:10px;letter-spacing:.28em;color:#8f8c86;margin-bottom:10px}
+.sp-meta b{font-size:14px;font-weight:600}
+.sp-prose{max-width:760px;font-size:15px;line-height:2;color:#c9c6bf}
+.sp-prose p+p{margin-top:22px}
+.sp-pn{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.sp-pn a{padding:34px 8px;border-bottom:1px solid var(--line);transition:.3s}
+.sp-pn a:hover{background:#141416}
+.sp-pn a+a{text-align:right}
+.sp-pn span{font-size:10px;letter-spacing:.28em;color:#8f8c86}
+.sp-pn b{display:block;font-size:17px;margin-top:10px;font-weight:600}
+.sp-cgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px}
+.sp-info h3{font-size:12px;letter-spacing:.3em;color:#8f8c86;margin:26px 0 10px;font-weight:600}
+.sp-info h3:first-child{margin-top:0}
+.sp-info p{font-size:14px;line-height:1.9}
+.sp-map{aspect-ratio:4/3;background:#141416;display:grid;place-items:center;font-size:11px;letter-spacing:.24em;color:#8f8c86;border:1px solid var(--line);margin-top:34px}
+.sp-form{display:grid;gap:18px}
+.sp-form label{font-size:11px;letter-spacing:.2em;color:#8f8c86;display:block;margin-bottom:8px}
+.sp-in{width:100%;padding:14px;border:1px solid #33333a;background:#141416;color:inherit;font-family:inherit;font-size:14px}
+.sp-in:focus{outline:none;border-color:var(--gold)}
+textarea.sp-in{min-height:140px;resize:vertical}
+.sp-check{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:#8f8c86;line-height:1.7}
+.sp-check input{margin-top:3px}
+.sp-btn{display:inline-block;border:0;background:var(--gold);color:#0d0d0e;padding:17px 46px;font-size:12px;letter-spacing:.28em;cursor:pointer;transition:.3s;font-family:inherit;text-align:center}
+.sp-btn:hover{opacity:.85}
+.sp-alert{display:none;margin-top:6px;padding:14px 16px;border:1px solid var(--gold);font-size:13px;line-height:1.7}
+.sp-alert.show{display:block}
+.sp-jobs .job{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:30px 8px;border-bottom:1px solid var(--line)}
+.sp-jobs .job:first-child{border-top:1px solid var(--line)}
+.sp-jobs h3{font-size:18px;font-weight:600}
+.sp-jobs p{font-size:12px;letter-spacing:.14em;color:#8f8c86;margin-top:8px}
+.sp-cta{padding:120px 0;text-align:center;border-top:1px solid var(--line)}
+.sp-cta .sp-lead{margin:18px auto 36px;max-width:none}
+.sp-blurbs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sp-blurb{border-top:1px solid var(--gold);padding-top:24px}
+.sp-blurb h3{font-size:17px;font-weight:600;letter-spacing:.04em}
+.sp-blurb p{font-size:13px;line-height:1.9;color:#8f8c86;margin-top:12px}
+@media(max-width:900px){
+.sp-hero{padding:150px 0 50px}
+.sp-sec{padding:80px 0}
+.sp-grid{grid-template-columns:1fr 1fr}
+.sp-stats,.sp-meta{grid-template-columns:1fr 1fr}
+.sp-cgrid,.sp-two,.sp-blurbs{grid-template-columns:1fr}
+.sp-grid.four{grid-template-columns:1fr 1fr}
+}
+
 </style>
 </head>
 <body>
 
 <header id="hd">
   <div class="wrap hd">
-    <a class="logo" href="#">RAUM INC<small>INTERIOR &amp; CONSTRUCTION</small></a>
+    <a class="logo" href="c.html">RAUM INC<small>INTERIOR &amp; CONSTRUCTION</small></a>
     <nav><ul>
       <li><a href="c-about.html">ABOUT</a></li>
       <li><a href="c-work.html">WORK</a></li>
@@ -162,73 +245,56 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <li><a href="c-recruit.html">RECRUIT</a></li>
 </ul></div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="slide on"><div class="ph ph-1"></div></div>
-  <div class="slide"><div class="ph ph-2"></div></div>
-  <div class="slide"><div class="ph ph-3"></div></div>
-  <div class="veil"></div>
-  <div class="hero-txt">
-    <div class="eyebrow">INTERIOR &amp; CONSTRUCTION</div>
-    <h1>Beyond Scale,<br>Into Detail.</h1>
-    <p>규모를 다루는 기술과 디테일을 완성하는 감각 —<br>라움아이앤씨가 공간을 짓는 방식입니다.</p>
-  </div>
-  <div class="hero-foot">
-    <span class="pj" id="pj">LG ENERGY SOLUTION OCHANG ENTRAL PARK</span>
-    <span class="nums" id="nums"><i class="on">01</i><i>02</i><i>03</i></span>
-  </div>
-</div>
 
-<!-- STATEMENT -->
-<div class="statement rv" id="about">
-  <div class="gline" style="margin-bottom:56px"></div>
-  <p>공간은 기업의 가장 큰 언어입니다.<br>
-  라움은 <em>설계에서 시공까지</em> 하나의 기준으로,<br>
-  브랜드의 격을 공간에 담아냅니다.</p>
-  <div class="meta">SINCE 20〇〇 · PROJECTS 〇〇〇+ · SEOUL, KOREA　※ 수치는 placeholder</div>
-</div>
+<main>
 
-<!-- WORKS -->
-<section class="wrap" id="work">
-  <div class="sec-head rv"><h2>SELECTED WORKS</h2><a href="c-work.html">VIEW ALL →</a></div>
-  <div class="feature rv">
-    <div class="art ph-1"></div>
-    <div class="cap">
-      <span class="tag">OFFICE · LOUNGE</span>
-      <h3>LG Energy Solution Ochang Entral Park</h3>
-      <span>대형 오피스 라운지 · 설계/시공 (이미지 placeholder)</span>
-    </div>
+<section class="sp-hero"><div class="wrap">
+  <div class="sp-crumb"><a href="c.html">HOME</a> / ABOUT</div>
+  <h1 class="sp-title rv">공간으로 기준을<br>만드는 회사</h1>
+  <p class="sp-lead rv">라움아이앤씨는 대형 오피스부터 병원·리조트까지, 설계와 시공의 전 과정을 하나의 기준으로 완성합니다.</p>
+</div></section>
+<section class="sp-sec"><div class="wrap">
+  <div class="sec-head rv"><h2>OVERVIEW</h2></div>
+  <div class="sp-prose rv"><p>라움아이앤씨(RAUM INC)는 인테리어 디자인과 시공을 함께 수행하는 전문 회사입니다. 기업 오피스, 호스피탈리티, 주거, 의료·교육 공간에서 프로젝트를 수행해 왔으며, 설계 단계의 판단과 시공 단계의 완성도를 하나의 기준으로 연결하는 것을 원칙으로 합니다.</p>
+  <p>※ 회사 소개 본문은 시안용 카피입니다 — 확정 원고로 교체됩니다.</p></div>
+  <div class="sp-stats rv" style="margin-top:64px">
+    <div class="sp-stat"><b>20〇〇</b><span>SINCE</span></div>
+    <div class="sp-stat"><b>〇〇〇+</b><span>PROJECTS</span></div>
+    <div class="sp-stat"><b>〇〇</b><span>PARTNERS</span></div>
+    <div class="sp-stat"><b>〇〇만㎡</b><span>BUILT AREA</span></div>
   </div>
-  <div class="works-grid">
-    <div class="card rv"><div class="art a1"></div><div class="veil2"></div><div class="line"></div><div class="info"><span class="tag">HOSPITALITY</span><h3>NH Life Seorak<br>Training Center</h3></div></div>
-    <div class="card rv"><div class="art a2"></div><div class="veil2"></div><div class="line"></div><div class="info"><span class="tag">OFFICE</span><h3>DAMG<br>Dong-A Media Center</h3></div></div>
-    <div class="card rv"><div class="art a3"></div><div class="veil2"></div><div class="line"></div><div class="info"><span class="tag">OFFICE</span><h3>LG Display Twin Tower<br>Smart Office</h3></div></div>
+  <p class="sp-note rv">※ 수치는 placeholder — 확정 데이터로 교체</p>
+</div></section>
+<section class="sp-sec tight"><div class="wrap">
+  <div class="sec-head rv"><h2>WHAT WE DO</h2><a href="c-work.html">VIEW WORK →</a></div>
+  <div class="sp-grid four rv" style="grid-template-columns:repeat(4,1fr)">
+    <a class="sp-card" style="aspect-ratio:4/4.4" href="c-work.html"><span class="sp-art g2"></span><span class="sp-cap"><span class="t">01</span><h3>Hospitality</h3></span></a>
+    <a class="sp-card" style="aspect-ratio:4/4.4" href="c-work.html"><span class="sp-art g6"></span><span class="sp-cap"><span class="t">02</span><h3>Housing</h3></span></a>
+    <a class="sp-card" style="aspect-ratio:4/4.4" href="c-work.html"><span class="sp-art g5"></span><span class="sp-cap"><span class="t">03</span><h3>Medical &amp; Education</h3></span></a>
+    <a class="sp-card" style="aspect-ratio:4/4.4" href="c-work.html"><span class="sp-art g1"></span><span class="sp-cap"><span class="t">04</span><h3>Office</h3></span></a>
   </div>
-  <p class="ph-note rv">※ 이미지 영역은 실제 시공 사진으로 교체됩니다 (그라디언트 = placeholder)</p>
-</section>
+</div></section>
+<section class="sp-sec" id="process"><div class="wrap">
+  <div class="sec-head rv"><h2>PROCESS</h2></div>
+  <div class="sp-blurbs rv" style="grid-template-columns:repeat(4,1fr)">
+    <div class="sp-blurb"><h3>01 CONSULTING</h3><p>공간의 목적과 조건을 정의하고 방향을 설계합니다.</p></div>
+    <div class="sp-blurb"><h3>02 DESIGN</h3><p>브랜드와 사용자를 반영한 공간 디자인을 제안합니다.</p></div>
+    <div class="sp-blurb"><h3>03 CONSTRUCTION</h3><p>일정과 품질 기준을 지키는 정밀한 시공을 수행합니다.</p></div>
+    <div class="sp-blurb"><h3>04 CARE</h3><p>완공 이후의 관리까지 책임지고 함께합니다.</p></div>
+  </div>
+</div></section>
+<section class="sp-sec tight"><div class="wrap">
+  <div class="sec-head rv"><h2>CLIENTS</h2></div>
+  <p class="sp-prose rv" style="letter-spacing:.06em">LG ENERGY SOLUTION · LG DISPLAY · NH LIFE · DONG-A MEDIA (DAMG) · THERAGEN HEALTH 외</p>
+  <p class="sp-note rv">※ 현 사이트에서 확인된 프로젝트 발주처 기준 — 전체 목록은 컨텐츠 이관 시 확정</p>
+</div></section>
+<section class="sp-cta"><div class="wrap rv">
+  <h1 class="sp-title" style="font-size:clamp(30px,4.4vw,54px)">프로젝트를 계획 중이신가요?</h1>
+  <p class="sp-lead">공간의 목적부터 함께 정리해 드립니다.</p>
+  <a class="sp-btn" href="c-contact.html">CONTACT</a>
+</div></section>
 
-<!-- CATEGORY -->
-<section class="wrap" id="category">
-  <div class="sec-head rv"><h2>WORK BY CATEGORY</h2></div>
-  <div class="cats rv">
-    <div class="cat-row"><div class="l"><span class="no">01</span><h3>Hospitality</h3></div><div class="r"><span>〇〇 PROJECTS</span><span>→</span></div></div>
-    <div class="cat-row"><div class="l"><span class="no">02</span><h3>Housing</h3></div><div class="r"><span>〇〇 PROJECTS</span><span>→</span></div></div>
-    <div class="cat-row"><div class="l"><span class="no">03</span><h3>Medical &amp; Education</h3></div><div class="r"><span>〇〇 PROJECTS</span><span>→</span></div></div>
-    <div class="cat-row"><div class="l"><span class="no">04</span><h3>Office</h3></div><div class="r"><span>〇〇 PROJECTS</span><span>→</span></div></div>
-  </div>
-</section>
-
-<!-- CLIENTS -->
-<div class="clients rv"><span class="tk">LG ENERGY SOLUTION · LG DISPLAY · NH LIFE · DONG-A MEDIA · THERAGEN HEALTH　　LG ENERGY SOLUTION · LG DISPLAY · NH LIFE · DONG-A MEDIA · THERAGEN HEALTH　　</span></div>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="wrap rv">
-    <div class="eyebrow">CONTACT</div>
-    <h2>다음 프로젝트의 기준을<br>함께 세우겠습니다.</h2>
-    <a class="btn" href="c-contact.html">START A PROJECT</a>
-  </div>
-</section>
+</main>
 
 <footer>
   <div class="wrap">
@@ -245,27 +311,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
 <script>
 const hd=document.getElementById('hd');
-addEventListener('scroll',()=>{hd.classList.toggle('scrolled',scrollY>60)});
-const slides=[...document.querySelectorAll('.hero .slide')];
-const nums=[...document.querySelectorAll('#nums i')];
-const pjs=['LG ENERGY SOLUTION OCHANG ENTRAL PARK','NH LIFE SEORAK TRAINING CENTER','DAMG DONG-A MEDIA CENTER'];
-let cur=0,timer;
-function go(n){
-  slides[cur].classList.remove('on');nums[cur].classList.remove('on');
-  cur=n%slides.length;
-  slides[cur].classList.add('on');nums[cur].classList.add('on');
-  document.getElementById('pj').textContent=pjs[cur];
-}
-function auto(){timer=setInterval(()=>go(cur+1),6500)}
-nums.forEach((d,i)=>d.addEventListener('click',()=>{clearInterval(timer);go(i);if(!mq.matches)auto()}));
-const mq=matchMedia('(prefers-reduced-motion: reduce)');
-if(!mq.matches)auto();
-const heroEl=document.querySelector('.hero');
-heroEl.addEventListener('mouseenter',()=>clearInterval(timer));
-heroEl.addEventListener('mouseleave',()=>{clearInterval(timer);if(!mq.matches)auto()});
+hd.classList.add('scrolled');
+addEventListener('scroll',()=>hd.classList.add('scrolled'));
 const mb=document.getElementById('mbtn'),mn=document.getElementById('mnav');
-mb.addEventListener('click',()=>{mb.classList.toggle('open');mn.classList.toggle('open')});
-mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mb.classList.remove('open');mn.classList.remove('open')}));
+if(mb&&mn){mb.addEventListener('click',()=>{mb.classList.toggle('open');mn.classList.toggle('open')});mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mb.classList.remove('open');mn.classList.remove('open')}));}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.05,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>

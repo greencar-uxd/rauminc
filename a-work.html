@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAUM INC — 시안 A · 미니멀 화이트 (DNL STUDIO)</title>
+<title>WORK — RAUM INC 시안 A (DNL STUDIO)</title>
 <!-- 시안 A: SEL형 미니멀 화이트 · 카피/수치/연락처는 placeholder, 프로젝트명은 현 사이트 확인분 -->
 <style>
 :root{
@@ -136,13 +136,96 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   .proc-grid{grid-template-columns:1fr 1fr;gap:36px 20px}
   section{padding:90px 0}
 }
+
+/* ── sub pages ── */
+.sp-hero{padding:190px 0 70px;border-bottom:1px solid var(--line)}
+.sp-crumb{font-size:11px;letter-spacing:.3em;color:#767676;margin-bottom:24px}
+.sp-crumb a:hover{color:#111111}
+.sp-title{font-family:var(--sans);font-size:clamp(38px,5.6vw,72px);font-weight:700;line-height:1.08;letter-spacing:-.01em}
+.sp-lead{margin-top:22px;font-size:15px;line-height:1.9;color:#767676;max-width:600px}
+.sp-sec{padding:110px 0}
+.sp-sec.tight{padding:64px 0}
+.sp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line)}
+.sp-stat{border-bottom:1px solid var(--line);padding:34px 8px}
+.sp-stat b{display:block;font-size:clamp(30px,3.4vw,50px);font-weight:700;font-family:var(--sans)}
+.sp-stat span{font-size:11px;letter-spacing:.24em;color:#767676;display:block;margin-top:10px}
+.sp-note{font-size:11px;letter-spacing:.12em;color:#767676;margin-top:18px}
+.sp-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:38px}
+.sp-tab{font-family:inherit;font-size:11px;letter-spacing:.2em;padding:11px 18px;border:1px solid var(--line);background:transparent;color:#767676;cursor:pointer;transition:.3s}
+.sp-tab.on,.sp-tab:hover{background:#111111;border-color:#111111;color:#ffffff}
+.sp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sp-card{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#f2f2f2}
+.sp-card .sp-art{transition:transform .7s cubic-bezier(.2,.6,.2,1)}
+.sp-card:hover .sp-art{transform:scale(1.05)}
+.sp-art{position:absolute;inset:0}
+.sp-art::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),transparent 44%),linear-gradient(180deg,transparent 56%,rgba(255,255,255,.07) 57%,transparent 60%)}
+.g1{background:linear-gradient(155deg,#4a4e54,#1f2226 70%)}.g1::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 40% at 70% 25%,rgba(215,200,170,.3),transparent)}
+.g2{background:linear-gradient(145deg,#514d46,#26231e 65%)}.g2::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 45% at 30% 35%,rgba(190,205,215,.24),transparent)}
+.g3{background:linear-gradient(165deg,#40444a,#191b1f 60%)}.g3::after{content:"";position:absolute;inset:0;background:radial-gradient(45% 40% at 55% 60%,rgba(205,185,155,.26),transparent)}
+.g4{background:linear-gradient(150deg,#4d4a45,#211f1b 65%)}.g4::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 45% at 65% 40%,rgba(210,215,220,.22),transparent)}
+.g5{background:linear-gradient(160deg,#454850,#1d1f24 60%)}.g5::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 40% at 40% 30%,rgba(220,205,175,.28),transparent)}
+.g6{background:linear-gradient(140deg,#4b4740,#231f1a 70%)}.g6::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 50% at 60% 55%,rgba(185,200,205,.22),transparent)}
+.sp-cap{position:absolute;left:0;right:0;bottom:0;padding:22px 20px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.66));z-index:2}
+.sp-cap .t{font-size:10px;letter-spacing:.26em;color:rgba(255,255,255,.85)}
+.sp-cap h3{font-size:15px;font-weight:600;line-height:1.45;margin-top:8px}
+.sp-ph{position:relative;overflow:hidden;background:#f2f2f2}
+.sp-wide{aspect-ratio:21/9}
+.sp-two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sp-two .sp-ph{aspect-ratio:4/3}
+.sp-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line);margin-top:48px}
+.sp-meta>div{border-bottom:1px solid var(--line);padding:22px 8px}
+.sp-meta span{display:block;font-size:10px;letter-spacing:.28em;color:#767676;margin-bottom:10px}
+.sp-meta b{font-size:14px;font-weight:600}
+.sp-prose{max-width:760px;font-size:15px;line-height:2;color:#444444}
+.sp-prose p+p{margin-top:22px}
+.sp-pn{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.sp-pn a{padding:34px 8px;border-bottom:1px solid var(--line);transition:.3s}
+.sp-pn a:hover{background:#f2f2f2}
+.sp-pn a+a{text-align:right}
+.sp-pn span{font-size:10px;letter-spacing:.28em;color:#767676}
+.sp-pn b{display:block;font-size:17px;margin-top:10px;font-weight:600}
+.sp-cgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px}
+.sp-info h3{font-size:12px;letter-spacing:.3em;color:#767676;margin:26px 0 10px;font-weight:600}
+.sp-info h3:first-child{margin-top:0}
+.sp-info p{font-size:14px;line-height:1.9}
+.sp-map{aspect-ratio:4/3;background:#f2f2f2;display:grid;place-items:center;font-size:11px;letter-spacing:.24em;color:#767676;border:1px solid var(--line);margin-top:34px}
+.sp-form{display:grid;gap:18px}
+.sp-form label{font-size:11px;letter-spacing:.2em;color:#767676;display:block;margin-bottom:8px}
+.sp-in{width:100%;padding:14px;border:1px solid #d9d9d9;background:#ffffff;color:inherit;font-family:inherit;font-size:14px}
+.sp-in:focus{outline:none;border-color:#111111}
+textarea.sp-in{min-height:140px;resize:vertical}
+.sp-check{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:#767676;line-height:1.7}
+.sp-check input{margin-top:3px}
+.sp-btn{display:inline-block;border:0;background:#111111;color:#ffffff;padding:17px 46px;font-size:12px;letter-spacing:.28em;cursor:pointer;transition:.3s;font-family:inherit;text-align:center}
+.sp-btn:hover{opacity:.85}
+.sp-alert{display:none;margin-top:6px;padding:14px 16px;border:1px solid #111111;font-size:13px;line-height:1.7}
+.sp-alert.show{display:block}
+.sp-jobs .job{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:30px 8px;border-bottom:1px solid var(--line)}
+.sp-jobs .job:first-child{border-top:1px solid var(--line)}
+.sp-jobs h3{font-size:18px;font-weight:600}
+.sp-jobs p{font-size:12px;letter-spacing:.14em;color:#767676;margin-top:8px}
+.sp-cta{padding:120px 0;text-align:center;border-top:1px solid var(--line)}
+.sp-cta .sp-lead{margin:18px auto 36px;max-width:none}
+.sp-blurbs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sp-blurb{border-top:1px solid #111111;padding-top:24px}
+.sp-blurb h3{font-size:17px;font-weight:600;letter-spacing:.04em}
+.sp-blurb p{font-size:13px;line-height:1.9;color:#767676;margin-top:12px}
+@media(max-width:900px){
+.sp-hero{padding:150px 0 50px}
+.sp-sec{padding:80px 0}
+.sp-grid{grid-template-columns:1fr 1fr}
+.sp-stats,.sp-meta{grid-template-columns:1fr 1fr}
+.sp-cgrid,.sp-two,.sp-blurbs{grid-template-columns:1fr}
+.sp-grid.four{grid-template-columns:1fr 1fr}
+}
+
 </style>
 </head>
 <body>
 
 <header id="hd">
   <div class="wrap hd">
-    <a class="logo" href="#">RAUM INC<small>INTERIOR &amp; CONSTRUCTION</small></a>
+    <a class="logo" href="a.html">RAUM INC<small>INTERIOR &amp; CONSTRUCTION</small></a>
     <nav><ul>
       <li><a href="a-about.html">ABOUT</a></li>
       <li><a href="a-work.html">WORK</a></li>
@@ -161,77 +244,37 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   <li><a href="a-recruit.html">RECRUIT</a></li>
 </ul></div>
 
-<!-- HERO -->
-<div class="hero" id="hero">
-  <div class="slide on"><div class="ph ph-1"></div></div>
-  <div class="slide"><div class="ph ph-2"></div></div>
-  <div class="slide"><div class="ph ph-3"></div></div>
-  <div class="veil"></div>
-  <div class="hero-txt">
-    <div class="eyebrow">INTERIOR &amp; CONSTRUCTION</div>
-    <h1><span>SPACE,</span><span>PRECISELY</span><span>BUILT.</span></h1>
-    <p>공간의 완성도가 곧 브랜드가 됩니다.<br>라움은 설계부터 시공까지, 끝의 디테일로 증명합니다.</p>
-  </div>
-  <div class="hero-meta">
-    <div class="pj" id="pj">LG Energy Solution Ochang Entral Park</div>
-    <div class="idx" id="idx">01 — 03</div>
-  </div>
-  <div class="hero-bar" id="bar"><i class="on"><b></b></i><i><b></b></i><i><b></b></i></div>
-  <div class="scroll-hint">SCROLL</div>
-</div>
 
-<!-- STATEMENT -->
-<div class="wrap statement rv" id="about">
-  <p>대형 오피스에서 병원, 리조트까지 —<br>
-  라움아이앤씨는 <em>공간의 목적</em>을 읽고,<br>
-  설계·시공의 전 과정을 하나의 기준으로 완성합니다.</p>
-  <div class="meta">SINCE 20〇〇 · PROJECTS 〇〇〇+ · SEOUL, KOREA　※ 수치는 placeholder</div>
-</div>
+<main>
 
-<!-- WORKS -->
-<section class="wrap" id="work">
-  <div class="sec-head rv"><h2>SELECTED WORKS</h2><a href="a-work.html">VIEW ALL →</a></div>
-  <div class="works-grid">
-    <div class="card rv"><div class="art a1"></div><span class="tag">OFFICE</span><div class="info"><h3>LG Energy Solution<br>Ochang Entral Park</h3><span>OFFICE · LOUNGE</span></div></div>
-    <div class="card rv"><div class="art a2"></div><span class="tag">HOSPITALITY</span><div class="info"><h3>NH Life<br>Seorak Training Center</h3><span>HOSPITALITY · STAY</span></div></div>
-    <div class="card rv"><div class="art a3"></div><span class="tag">OFFICE</span><div class="info"><h3>DAMG<br>Dong-A Media Center</h3><span>OFFICE · MEDIA</span></div></div>
-    <div class="card rv"><div class="art a4"></div><span class="tag">OFFICE</span><div class="info"><h3>LG Display Twin Tower<br>Smart Office</h3><span>OFFICE · SMART WORK</span></div></div>
-    <div class="card rv"><div class="art a5"></div><span class="tag">MEDICAL</span><div class="info"><h3>Theragen Health</h3><span>MEDICAL · CLINIC</span></div></div>
-    <div class="card rv"><div class="art a6"></div><span class="tag">HOUSING</span><div class="info"><h3>Residence Project<br>(Placeholder)</h3><span>HOUSING</span></div></div>
+<section class="sp-hero"><div class="wrap">
+  <div class="sp-crumb"><a href="a.html">HOME</a> / WORK</div>
+  <h1 class="sp-title rv">WORK</h1>
+  <p class="sp-lead rv">카테고리별 프로젝트 아카이브입니다. 오픈 후에는 게시판형 구조로 내부에서 직접 프로젝트를 추가·수정할 수 있습니다.</p>
+  <div class="sp-tabs rv">
+    <button class="sp-tab on" data-f="all">ALL</button>
+    <button class="sp-tab" data-f="hospitality">HOSPITALITY</button>
+    <button class="sp-tab" data-f="housing">HOUSING</button>
+    <button class="sp-tab" data-f="medical">MEDICAL &amp; EDUCATION</button>
+    <button class="sp-tab" data-f="office">OFFICE</button>
   </div>
-  <p class="ph-note rv">※ 이미지 영역은 실제 시공 사진으로 교체됩니다 (그라디언트 = placeholder)</p>
-</section>
+</div></section>
+<section class="sp-sec"><div class="wrap">
+  <div class="sp-grid">
+    <a class="sp-card rv" data-cat="office" href="a-project.html"><span class="sp-art g1"></span><span class="sp-cap"><span class="t">OFFICE · LOUNGE</span><h3>LG Energy Solution<br>Ochang Entral Park</h3></span></a>
+    <a class="sp-card rv" data-cat="hospitality" href="a-project.html"><span class="sp-art g2"></span><span class="sp-cap"><span class="t">HOSPITALITY · STAY</span><h3>NH Life Seorak<br>Training Center</h3></span></a>
+    <a class="sp-card rv" data-cat="office" href="a-project.html"><span class="sp-art g3"></span><span class="sp-cap"><span class="t">OFFICE · MEDIA</span><h3>DAMG<br>Dong-A Media Center</h3></span></a>
+    <a class="sp-card rv" data-cat="office" href="a-project.html"><span class="sp-art g4"></span><span class="sp-cap"><span class="t">OFFICE · SMART WORK</span><h3>LG Display Twin Tower<br>Smart Office</h3></span></a>
+    <a class="sp-card rv" data-cat="medical" href="a-project.html"><span class="sp-art g5"></span><span class="sp-cap"><span class="t">MEDICAL · CLINIC</span><h3>Theragen Health</h3></span></a>
+    <a class="sp-card rv" data-cat="housing" href="a-project.html"><span class="sp-art g6"></span><span class="sp-cap"><span class="t">HOUSING</span><h3>Housing Project<br>(Placeholder)</h3></span></a>
+    <a class="sp-card rv" data-cat="hospitality" href="a-project.html"><span class="sp-art g3"></span><span class="sp-cap"><span class="t">HOSPITALITY</span><h3>Hospitality Project<br>(Placeholder)</h3></span></a>
+    <a class="sp-card rv" data-cat="housing" href="a-project.html"><span class="sp-art g1"></span><span class="sp-cap"><span class="t">HOUSING</span><h3>Housing Project<br>(Placeholder)</h3></span></a>
+    <a class="sp-card rv" data-cat="medical" href="a-project.html"><span class="sp-art g4"></span><span class="sp-cap"><span class="t">MEDICAL & EDUCATION</span><h3>Education Project<br>(Placeholder)</h3></span></a>
+  </div>
+  <p class="sp-note rv">※ (Placeholder) 카드는 기존 사이트 프로젝트 이관 시 실제 프로젝트로 교체됩니다 · 이미지 영역 교체 예정</p>
+</div></section>
 
-<!-- CATEGORIES -->
-<section class="wrap cats-sec">
-  <div class="sec-head rv"><h2>WORK BY CATEGORY</h2></div>
-  <div class="cats rv">
-    <div class="cat-row"><div class="l"><span class="no">01</span><h3>Hospitality</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
-    <div class="cat-row"><div class="l"><span class="no">02</span><h3>Housing</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
-    <div class="cat-row"><div class="l"><span class="no">03</span><h3>Medical &amp; Education</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
-    <div class="cat-row"><div class="l"><span class="no">04</span><h3>Office</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="wrap" id="process">
-  <div class="sec-head rv"><h2>PROCESS</h2></div>
-  <div class="proc-grid">
-    <div class="proc rv"><span class="no">01</span><h3>CONSULTING</h3><p>공간의 목적과 조건을 정의하고 방향을 설계합니다.</p></div>
-    <div class="proc rv"><span class="no">02</span><h3>DESIGN</h3><p>브랜드와 사용자를 반영한 공간 디자인을 제안합니다.</p></div>
-    <div class="proc rv"><span class="no">03</span><h3>CONSTRUCTION</h3><p>일정과 품질 기준을 지키는 정밀한 시공을 수행합니다.</p></div>
-    <div class="proc rv"><span class="no">04</span><h3>CARE</h3><p>완공 이후의 관리까지 책임지고 함께합니다.</p></div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="wrap rv">
-    <div class="eyebrow">CONTACT</div>
-    <h2>START YOUR<br>PROJECT</h2>
-    <a class="btn" href="a-contact.html">GET IN TOUCH</a>
-  </div>
-</section>
+</main>
 
 <footer>
   <div class="wrap">
@@ -247,35 +290,17 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 <div class="draft">시안 A · 미니멀 화이트 — DRAFT</div>
 
 <script>
-// header state
 const hd=document.getElementById('hd');
-addEventListener('scroll',()=>{hd.classList.toggle('scrolled',scrollY>60)});
-// hero slider
-const slides=[...document.querySelectorAll('.slide')];
-const bars=[...document.querySelectorAll('#bar i')];
-const pjs=['LG Energy Solution Ochang Entral Park','NH Life Seorak Training Center','DAMG Dong-A Media Center'];
-let cur=0;
-function go(n){
-  slides[cur].classList.remove('on');bars[cur].classList.remove('on');
-  cur=n%slides.length;
-  slides[cur].classList.add('on');
-  bars.forEach((b,i)=>{b.classList.toggle('on',i===cur);b.querySelector('b').style.width=i<cur?'100%':(i===cur?'':'0')});
-  document.getElementById('pj').textContent=pjs[cur];
-  document.getElementById('idx').textContent='0'+(cur+1)+' — 03';
-}
-let timer;const mq=matchMedia('(prefers-reduced-motion: reduce)');
-function auto(){timer=setInterval(()=>go(cur+1),6000)}
-if(!mq.matches)auto();
-const heroEl=document.getElementById('hero');
-heroEl.addEventListener('mouseenter',()=>clearInterval(timer));
-heroEl.addEventListener('mouseleave',()=>{clearInterval(timer);if(!mq.matches)auto()});
-// mobile nav
+hd.classList.add('scrolled');
+addEventListener('scroll',()=>hd.classList.add('scrolled'));
 const mb=document.getElementById('mbtn'),mn=document.getElementById('mnav');
-mb.addEventListener('click',()=>{mb.classList.toggle('open');mn.classList.toggle('open')});
-mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mb.classList.remove('open');mn.classList.remove('open')}));
-// reveal
+if(mb&&mn){mb.addEventListener('click',()=>{mb.classList.toggle('open');mn.classList.toggle('open')});mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mb.classList.remove('open');mn.classList.remove('open')}));}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.05,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+const tabs=[...document.querySelectorAll('.sp-tab')],cards=[...document.querySelectorAll('.sp-card')];
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('on'));t.classList.add('on');
+const f=t.dataset.f;cards.forEach(c=>{c.style.display=(f==='all'||c.dataset.cat===f)?'':'none'})}));
 </script>
 </body>
 </html>
