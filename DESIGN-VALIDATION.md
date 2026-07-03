@@ -1,5 +1,7 @@
 # 라움아이앤씨(RAUM INC) 시안 A·B·C 디자인 검증 리포트
 
+> **2차 시안(V2 — a2/b2/c2) 검증·수정 내역은 [문서 하단 §6](#6-2차-시안v2--a2b2c2-검증--수정-2026-07-03) 참조.** 이하 §1~5는 1차 시안(V1) 검증 결과.
+
 - **검증일**: 2026-07-03
 - **대상**: 시안 A(미니멀 화이트) · 시안 B(레드 포인트) · 시안 C(다크 프리미엄) — 각 6페이지, 총 18개 HTML
 - **검증 기준(스킬)**: `ui-ux-pro-max`(우선순위 1→10 체크리스트, WCAG 기준), `frontend-design`(미학·차별성), `stop-slop`(카피), `design-system`(토큰 규율)
@@ -211,3 +213,41 @@ frontend-design 스킬이 명시적으로 경고하는 AI 기본형 (2) "near-bl
 ---
 
 *검증 산출물: 데스크톱(1440px)·모바일(390px) 전체 페이지 스크린샷 36장, 가로 오버플로 실측값, 명도 대비 계산값. 세부 근거(파일:행 번호)는 본문 각 항목에 표기.*
+
+---
+
+## 6. 2차 시안(V2 — a2/b2/c2) 검증 + 수정 (2026-07-03)
+
+핸드오프 문서 지시("결과물 받으면 a2/b2/c2.html로 같은 리포에 배포해 나란히 비교")에 따라 신버전 시안 패키지(raum-a/b/c → a2/b2/c2 리네임, 내부 링크 재작성)를 배포 준비하며 동일 기준으로 검증했습니다.
+
+**검증 방법**: Playwright 기능 테스트(19페이지 × 데스크톱/모바일) + 병렬 리뷰 에이전트 3개 + 발견 항목별 적대적 검증 에이전트(총 23개 에이전트, 확정 findings만 반영) + 개인정보/기밀 전수 스캔.
+
+### V2가 이미 잘 해결한 것 (V1 대비 개선 확인)
+44px 햄버거 · `aria-expanded`/포커스 관리/Escape/스크롤 잠금 · 라벨 래핑 + `name`/`autocomplete` 폼 · 스킵 링크 · `100svh` · 본문 16px · 라이트/다크 이미지 그레이딩 분리 · `text-wrap:balance/pretty` · reduced-motion 시 티커 정적 전환 · placeholder 규율 유지 · 개인정보(담당자 연락처)·매출 정보 미노출 (전수 스캔 클린)
+
+### 발견 → 수정 완료 (Playwright 재검증 ALL PASS)
+
+| # | 결함 | 수정 |
+|---|---|---|
+| 1 | **모바일 메뉴 z-index 스태킹 버그 재발** — `.nav-tg`(1200)가 `.hd`(1100) 컨텍스트에 갇혀 오버레이(1150)가 닫기 버튼을 덮음 (기능 테스트로 실증) | `setMenu`에서 `.hd.menu-open{z-index:1250}` 토글 |
+| 2 | **모바일 가로 오버플로** — `aspect-ratio`+`min-height` 폭 전이로 `.d-hero` 480px·`.map-ph` 607px (about/work-case/contact, 110~237px 오버플로 실측) | `max-width:100%` 클램프 → 18페이지 오버플로 0px |
+| 3 | 캐러셀 명시적 정지 수단 부재 (WCAG 2.2.2, 검증 에이전트 확정) | `aria-pressed` 일시정지 토글 버튼 추가(시안별 스타일 매칭), 정지 상태 유지 실증 |
+| 4 | 오버레이 메뉴 다이얼로그 시맨틱·포커스 트랩 부재 | `role="dialog" aria-modal` + Tab 순환 트랩(토글 버튼 포함) |
+| 5 | 폼 제출 무반응 (preventDefault만) | `role="status"` 라이브 영역 + 제출 시 시안 안내 메시지 |
+| 6 | 폼 입력·필터 칩 테두리 대비 1.27~1.36:1 (WCAG 1.4.11) | 라이트 `#8A8880`(3.2:1)·다크 `rgba(237,234,228,.42)`(≥3:1)로 상향 |
+| 7 | `aria-current` 부재 (활성 내비가 인라인 style 시각 표시뿐) | 서브페이지 self 링크에 `aria-current="page"`(work-case는 Work에 `"true"`) |
+| 8 | 헤딩 레벨 스킵 (h1→h3) — work/work-case/contact/recruit | sr-only h2 삽입 |
+| 9 | 필터 칩 상태 미노출 | `aria-pressed` 초기값 + JS 동기화 |
+| 10 | c2 홈 카드 5장 죽은 UI (hover 줌인데 링크 아님) | `<a href="c2-work-case.html">` 링크화 |
+| 11 | `<noscript>` 리빌 폴백 부재 | 추가 (IO 미지원 폴백은 기존에 있었음) |
+| 12 | `word-break:keep-all` 부재 / 티커 hover 전용 정지 / 이미지 lazy 부재 / 동의 체크박스 `name` 부재 / crumb 터치 타깃 19px | keep-all+overflow-wrap / `tabindex` + `:focus-within` 정지 / 첫 이미지 제외 `loading="lazy" decoding="async"` / `name="agree"`+`autocomplete="tel"` / `padding-block:8px` |
+
+### 미반영 (확인/결정 필요 — V1과 동일 항목 포함)
+- "Ochang **Entral** Park" 표기(V2에도 7곳) — 발주처 확인 후 일괄 치환
+- 내부 검수용 카피("연혁 2013 표기 확인 필요" 등) — DRAFT 단계 의도 노출, 오픈 전 일괄 제거 체크리스트로 관리
+- 연락처 필드의 전화/이메일 분리, 슬라이드 전환 라이브 알림, 잔여 이미지 4장(card-hotel/housing/medical, gallery-1) 슬롯
+
+### 배포 구성
+- `index.html` — V1/V2 나란히 비교하는 인덱스 허브로 재구성
+- `README.md` — V1/V2 구조·상태 문서화
+- `images/` — 힉스필드 생성분(src 원본 PNG + web JPG + C용 dark 그레이딩) 커밋. 내부 노트(CLAUDE.md)·스크린샷은 제외
