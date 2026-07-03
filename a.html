@@ -21,7 +21,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s;padding:28
 header.scrolled{color:var(--ink);background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:16px 0;border-bottom:1px solid var(--line)}
 .hd{display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:20px;font-weight:700;letter-spacing:.16em}
-.logo small{display:block;font-size:8px;font-weight:400;letter-spacing:.34em;opacity:.7;margin-top:3px}
+.logo small{display:block;font-size:10px;font-weight:400;letter-spacing:.34em;opacity:.7;margin-top:3px}
 nav ul{display:flex;gap:36px}
 nav a{font-size:12px;letter-spacing:.18em;font-weight:500;position:relative;padding:4px 0}
 nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:currentColor;transition:.3s}
@@ -48,9 +48,10 @@ nav a:hover::after{width:100%}
 .hero-meta .pj{font-size:13px;letter-spacing:.08em;opacity:.9;min-height:18px}
 .hero-meta .idx{font-size:11px;letter-spacing:.3em;opacity:.6;margin-top:10px}
 .hero-bar{position:absolute;left:48px;right:48px;bottom:64px;display:flex;gap:8px;z-index:5}
-.hero-bar i{flex:1;height:1px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
-.hero-bar i b{position:absolute;left:0;top:0;bottom:0;width:0;background:#fff}
-.hero-bar i.on b{width:100%;transition:width 6s linear}
+.hero-bar button{flex:1;height:24px;background:none;border:0;padding:0;position:relative;overflow:hidden;cursor:pointer}
+.hero-bar button::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.25)}
+.hero-bar button b{position:absolute;left:0;top:50%;height:1px;width:0;background:#fff}
+.hero-bar button.on b{width:100%;transition:width 6s linear}
 .scroll-hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);color:#fff;font-size:10px;letter-spacing:.4em;opacity:.6;z-index:5;animation:bob 2.4s infinite}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
 /* sections */
@@ -105,9 +106,9 @@ section{padding:130px 0}
 /* footer */
 footer{padding:70px 0 40px;border-top:1px solid var(--line)}
 .ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
-.ft .col h4{font-size:10px;letter-spacing:.3em;color:#aaa;margin-bottom:14px}
+.ft .col h4{font-size:10px;letter-spacing:.3em;color:#767676;margin-bottom:14px}
 .ft .col p{font-size:13px;line-height:1.9;color:var(--ink2)}
-.copy{margin-top:56px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#8a8a8a}
+.copy{margin-top:56px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#6e6e6e}
 /* reveal */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
 .rv.in{opacity:1;transform:none}
@@ -136,13 +137,33 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   .proc-grid{grid-template-columns:1fr 1fr;gap:36px 20px}
   section{padding:90px 0}
 }
+
+/* --- validation fixes (2026-07) --- */
+body{word-break:keep-all}
+.skip{position:fixed;left:-999px;top:12px;z-index:400;background:#111;color:#fff;font-size:13px;letter-spacing:.08em;padding:12px 18px}
+.skip:focus{left:12px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.mnav{visibility:hidden;transition:opacity .3s,visibility .3s}
+.mnav.open{visibility:visible}
+header.menu-open{z-index:200;color:var(--ink)}
+.mbtn{min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.statement{padding-inline:48px}
+.sp-tab{padding-block:13px}
+.sp-in:focus-visible{outline:2px solid #111111;outline-offset:2px}
+nav a[aria-current="page"]::after{width:100%}
+@media(max-width:900px){.statement{padding-inline:22px}}
+@media(min-width:901px){.sp-grid.four{grid-template-columns:repeat(4,1fr)}.sp-blurbs.four{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}header,.sp-art,.cat-row,.card,.catc,.mnav{transition:none}}
+@supports(height:100dvh){.hero{height:100dvh}}
 </style>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
+<a class="skip" href="#main">본문 바로가기</a>
 
 <header id="hd">
   <div class="wrap hd">
-    <a class="logo" href="#">RAUM INC<small>INTERIOR &amp; CONSTRUCTION</small></a>
+    <a class="logo" href="a.html">RAUM INC<small>INTERIOR &amp; CONSTRUCTION</small></a>
     <nav><ul>
       <li><a href="a-about.html">ABOUT</a></li>
       <li><a href="a-work.html">WORK</a></li>
@@ -150,7 +171,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
       <li><a href="a-contact.html">CONTACT</a></li>
       <li><a href="a-recruit.html">RECRUIT</a></li>
     </ul></nav>
-    <button class="mbtn" id="mbtn" aria-label="메뉴"><span></span><span></span></button>
+    <button class="mbtn" id="mbtn" aria-label="메뉴" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
   </div>
 </header>
 <div class="mnav" id="mnav"><ul>
@@ -160,6 +181,8 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   <li><a href="a-contact.html">CONTACT</a></li>
   <li><a href="a-recruit.html">RECRUIT</a></li>
 </ul></div>
+
+<main id="main">
 
 <!-- HERO -->
 <div class="hero" id="hero">
@@ -176,7 +199,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
     <div class="pj" id="pj">LG Energy Solution Ochang Entral Park</div>
     <div class="idx" id="idx">01 — 03</div>
   </div>
-  <div class="hero-bar" id="bar"><i class="on"><b></b></i><i><b></b></i><i><b></b></i></div>
+  <div class="hero-bar" id="bar"><button class="on" aria-label="슬라이드 1"><b></b></button><button aria-label="슬라이드 2"><b></b></button><button aria-label="슬라이드 3"><b></b></button></div>
   <div class="scroll-hint">SCROLL</div>
 </div>
 
@@ -192,12 +215,12 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 <section class="wrap" id="work">
   <div class="sec-head rv"><h2>SELECTED WORKS</h2><a href="a-work.html">VIEW ALL →</a></div>
   <div class="works-grid">
-    <div class="card rv"><div class="art a1"></div><span class="tag">OFFICE</span><div class="info"><h3>LG Energy Solution<br>Ochang Entral Park</h3><span>OFFICE · LOUNGE</span></div></div>
-    <div class="card rv"><div class="art a2"></div><span class="tag">HOSPITALITY</span><div class="info"><h3>NH Life<br>Seorak Training Center</h3><span>HOSPITALITY · STAY</span></div></div>
-    <div class="card rv"><div class="art a3"></div><span class="tag">OFFICE</span><div class="info"><h3>DAMG<br>Dong-A Media Center</h3><span>OFFICE · MEDIA</span></div></div>
-    <div class="card rv"><div class="art a4"></div><span class="tag">OFFICE</span><div class="info"><h3>LG Display Twin Tower<br>Smart Office</h3><span>OFFICE · SMART WORK</span></div></div>
-    <div class="card rv"><div class="art a5"></div><span class="tag">MEDICAL</span><div class="info"><h3>Theragen Health</h3><span>MEDICAL · CLINIC</span></div></div>
-    <div class="card rv"><div class="art a6"></div><span class="tag">HOUSING</span><div class="info"><h3>Residence Project<br>(Placeholder)</h3><span>HOUSING</span></div></div>
+    <a class="card rv" href="a-project.html"><div class="art a1"></div><span class="tag">OFFICE</span><div class="info"><h3>LG Energy Solution<br>Ochang Entral Park</h3><span>OFFICE · LOUNGE</span></div></a>
+    <a class="card rv" href="a-project.html"><div class="art a2"></div><span class="tag">HOSPITALITY</span><div class="info"><h3>NH Life<br>Seorak Training Center</h3><span>HOSPITALITY · STAY</span></div></a>
+    <a class="card rv" href="a-project.html"><div class="art a3"></div><span class="tag">OFFICE</span><div class="info"><h3>DAMG<br>Dong-A Media Center</h3><span>OFFICE · MEDIA</span></div></a>
+    <a class="card rv" href="a-project.html"><div class="art a4"></div><span class="tag">OFFICE</span><div class="info"><h3>LG Display Twin Tower<br>Smart Office</h3><span>OFFICE · SMART WORK</span></div></a>
+    <a class="card rv" href="a-project.html"><div class="art a5"></div><span class="tag">MEDICAL</span><div class="info"><h3>Theragen Health</h3><span>MEDICAL · CLINIC</span></div></a>
+    <a class="card rv" href="a-project.html"><div class="art a6"></div><span class="tag">HOUSING</span><div class="info"><h3>Residence Project<br>(Placeholder)</h3><span>HOUSING</span></div></a>
   </div>
   <p class="ph-note rv">※ 이미지 영역은 실제 시공 사진으로 교체됩니다 (그라디언트 = placeholder)</p>
 </section>
@@ -206,10 +229,10 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 <section class="wrap cats-sec">
   <div class="sec-head rv"><h2>WORK BY CATEGORY</h2></div>
   <div class="cats rv">
-    <div class="cat-row"><div class="l"><span class="no">01</span><h3>Hospitality</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
-    <div class="cat-row"><div class="l"><span class="no">02</span><h3>Housing</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
-    <div class="cat-row"><div class="l"><span class="no">03</span><h3>Medical &amp; Education</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
-    <div class="cat-row"><div class="l"><span class="no">04</span><h3>Office</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></div>
+    <a class="cat-row" href="a-work.html"><div class="l"><span class="no">01</span><h3>Hospitality</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></a>
+    <a class="cat-row" href="a-work.html"><div class="l"><span class="no">02</span><h3>Housing</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></a>
+    <a class="cat-row" href="a-work.html"><div class="l"><span class="no">03</span><h3>Medical &amp; Education</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></a>
+    <a class="cat-row" href="a-work.html"><div class="l"><span class="no">04</span><h3>Office</h3></div><div class="r"><span class="cnt">〇〇 PROJECTS</span><span class="arw">→</span></div></a>
   </div>
 </section>
 
@@ -233,6 +256,8 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap">
     <div class="ft">
@@ -252,7 +277,7 @@ const hd=document.getElementById('hd');
 addEventListener('scroll',()=>{hd.classList.toggle('scrolled',scrollY>60)});
 // hero slider
 const slides=[...document.querySelectorAll('.slide')];
-const bars=[...document.querySelectorAll('#bar i')];
+const bars=[...document.querySelectorAll('#bar button')];
 const pjs=['LG Energy Solution Ochang Entral Park','NH Life Seorak Training Center','DAMG Dong-A Media Center'];
 let cur=0;
 function go(n){
@@ -269,10 +294,15 @@ if(!mq.matches)auto();
 const heroEl=document.getElementById('hero');
 heroEl.addEventListener('mouseenter',()=>clearInterval(timer));
 heroEl.addEventListener('mouseleave',()=>{clearInterval(timer);if(!mq.matches)auto()});
+heroEl.addEventListener('focusin',()=>clearInterval(timer));
+heroEl.addEventListener('focusout',()=>{clearInterval(timer);if(!mq.matches)auto()});
+bars.forEach((b,i)=>b.addEventListener('click',()=>{clearInterval(timer);go(i);if(!mq.matches)auto()}));
 // mobile nav
 const mb=document.getElementById('mbtn'),mn=document.getElementById('mnav');
-mb.addEventListener('click',()=>{mb.classList.toggle('open');mn.classList.toggle('open')});
-mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mb.classList.remove('open');mn.classList.remove('open')}));
+const setMenu=o=>{mb.classList.toggle('open',o);mn.classList.toggle('open',o);hd.classList.toggle('menu-open',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+mb.addEventListener('click',()=>setMenu(!mn.classList.contains('open')));
+mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&mn.classList.contains('open'))setMenu(false)});
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.05,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));

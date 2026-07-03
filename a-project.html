@@ -21,7 +21,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s;padding:28
 header.scrolled{color:var(--ink);background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:16px 0;border-bottom:1px solid var(--line)}
 .hd{display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:20px;font-weight:700;letter-spacing:.16em}
-.logo small{display:block;font-size:8px;font-weight:400;letter-spacing:.34em;opacity:.7;margin-top:3px}
+.logo small{display:block;font-size:10px;font-weight:400;letter-spacing:.34em;opacity:.7;margin-top:3px}
 nav ul{display:flex;gap:36px}
 nav a{font-size:12px;letter-spacing:.18em;font-weight:500;position:relative;padding:4px 0}
 nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:currentColor;transition:.3s}
@@ -105,9 +105,9 @@ section{padding:130px 0}
 /* footer */
 footer{padding:70px 0 40px;border-top:1px solid var(--line)}
 .ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
-.ft .col h4{font-size:10px;letter-spacing:.3em;color:#aaa;margin-bottom:14px}
+.ft .col h4{font-size:10px;letter-spacing:.3em;color:#767676;margin-bottom:14px}
 .ft .col p{font-size:13px;line-height:1.9;color:var(--ink2)}
-.copy{margin-top:56px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#8a8a8a}
+.copy{margin-top:56px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#6e6e6e}
 /* reveal */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
 .rv.in{opacity:1;transform:none}
@@ -219,11 +219,31 @@ textarea.sp-in{min-height:140px;resize:vertical}
 .sp-grid.four{grid-template-columns:1fr 1fr}
 }
 
+
+/* --- validation fixes (2026-07) --- */
+body{word-break:keep-all}
+.skip{position:fixed;left:-999px;top:12px;z-index:400;background:#111;color:#fff;font-size:13px;letter-spacing:.08em;padding:12px 18px}
+.skip:focus{left:12px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.mnav{visibility:hidden;transition:opacity .3s,visibility .3s}
+.mnav.open{visibility:visible}
+header.menu-open{z-index:200;color:var(--ink)}
+.mbtn{min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.statement{padding-inline:48px}
+.sp-tab{padding-block:13px}
+.sp-in:focus-visible{outline:2px solid #111111;outline-offset:2px}
+nav a[aria-current="page"]::after{width:100%}
+@media(max-width:900px){.statement{padding-inline:22px}}
+@media(min-width:901px){.sp-grid.four{grid-template-columns:repeat(4,1fr)}.sp-blurbs.four{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}header,.sp-art,.cat-row,.card,.catc,.mnav{transition:none}}
+@supports(height:100dvh){.hero{height:100dvh}}
 </style>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
+<a class="skip" href="#main">본문 바로가기</a>
 
-<header id="hd">
+<header id="hd" class="scrolled">
   <div class="wrap hd">
     <a class="logo" href="a.html">RAUM INC<small>INTERIOR &amp; CONSTRUCTION</small></a>
     <nav><ul>
@@ -233,7 +253,7 @@ textarea.sp-in{min-height:140px;resize:vertical}
       <li><a href="a-contact.html">CONTACT</a></li>
       <li><a href="a-recruit.html">RECRUIT</a></li>
     </ul></nav>
-    <button class="mbtn" id="mbtn" aria-label="메뉴"><span></span><span></span></button>
+    <button class="mbtn" id="mbtn" aria-label="메뉴" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
   </div>
 </header>
 <div class="mnav" id="mnav"><ul>
@@ -245,7 +265,7 @@ textarea.sp-in{min-height:140px;resize:vertical}
 </ul></div>
 
 
-<main>
+<main id="main">
 
 <section class="sp-hero"><div class="wrap">
   <div class="sp-crumb"><a href="a.html">HOME</a> / <a href="a-work.html">WORK</a> / OFFICE</div>
@@ -284,7 +304,7 @@ textarea.sp-in{min-height:140px;resize:vertical}
     <a href="a-project.html"><span>← PREV PROJECT</span><b>Theragen Health</b></a>
     <a href="a-project.html"><span>NEXT PROJECT →</span><b>NH Life Seorak Training Center</b></a>
   </div>
-  <p class="sp-note rv" style="text-align:center;margin-top:26px"><a href="a-work.html">← BACK TO WORK</a>　·　※ 본 페이지는 상세 템플릿 1건 시안입니다 (이전/다음은 동일 템플릿로 연결)</p>
+  <p class="sp-note rv" style="text-align:center;margin-top:26px"><a href="a-work.html">← BACK TO WORK</a>　·　※ 본 페이지는 상세 템플릿 1건 시안입니다 (이전/다음은 동일 템플릿으로 연결)</p>
 </div></section>
 
 </main>
@@ -307,7 +327,10 @@ const hd=document.getElementById('hd');
 hd.classList.add('scrolled');
 addEventListener('scroll',()=>hd.classList.add('scrolled'));
 const mb=document.getElementById('mbtn'),mn=document.getElementById('mnav');
-if(mb&&mn){mb.addEventListener('click',()=>{mb.classList.toggle('open');mn.classList.toggle('open')});mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mb.classList.remove('open');mn.classList.remove('open')}));}
+if(mb&&mn){const setMenu=o=>{mb.classList.toggle('open',o);mn.classList.toggle('open',o);hd.classList.toggle('menu-open',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+mb.addEventListener('click',()=>setMenu(!mn.classList.contains('open')));
+mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&mn.classList.contains('open'))setMenu(false)});}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.05,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
