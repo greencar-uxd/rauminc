@@ -3,15 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet">
 <meta name="color-scheme" content="dark">
-<title>RAUM INC — 시안 C · 다크 프리미엄 (DRAFT)</title>
-<!--
-  시안 C · 다크 프리미엄 — RAUM INC 메인 페이지 리뉴얼 (DRAFT)
-  · 딥 차콜 3단 명도 설계(배경/패널/이미지) + EN 세리프 디스플레이
-  · LG · NH 등 대형 프로젝트 수행사의 중후함 — 조도 낮춘 쇼룸 무드
-  · 모든 이미지 영역은 CSS 플레이스홀더 — 실사 촬영본으로 교체 예정
-  · 주소/연락처/통계는 placeholder(〇〇) — 확정 정보 아님
--->
+<title>RAUM INC — 시안 C · WORK — CASE (DRAFT)</title>
+<!-- 시안 C · 다크 프리미엄 — 서브페이지 (DRAFT) · 주소/연락처/수치의 〇〇 표기는 placeholder -->
 <style>
 /* ============ 토큰 ============
    contrast (계산값):
@@ -24,7 +21,7 @@
   --bg:#0E1013; --bg2:#14171C; --bg3:#0A0C0E;
   --ink:#EDEAE4; --sub:#A6A199; --line:rgba(237,234,228,.14);
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard","Noto Sans KR","Malgun Gothic","Helvetica Neue",Arial,sans-serif;
-  --serif:"Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --serif:'Noto Serif KR',"Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
   --pad:clamp(20px,4.4vw,64px);
 }
@@ -109,6 +106,7 @@ button{background:none;border:0;font:inherit;color:inherit;cursor:pointer}
 .s-info{position:absolute;z-index:4;left:var(--pad);right:var(--pad);bottom:calc(clamp(28px,5.5vh,68px) + 76px);display:flex;flex-direction:column;gap:16px;max-width:1680px}
 .s-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.92)}
 .s-title{font-family:var(--serif);font-size:clamp(38px,6.2vw,96px);font-weight:600;letter-spacing:-.005em;line-height:1.05}
+.s-sub{font-size:14px;color:rgba(255,255,255,.9)}
 .s-ctl{position:absolute;z-index:5;left:var(--pad);bottom:clamp(28px,5.5vh,68px);display:flex;align-items:center;gap:20px}
 .s-ctl button.arr{width:44px;height:44px;border:1px solid rgba(255,255,255,.45);border-radius:50%;display:grid;place-items:center;font-size:15px;transition:background .25s,border-color .25s}
 .s-ctl button.arr:hover{background:rgba(255,255,255,.14);border-color:#fff}
@@ -237,6 +235,75 @@ button{background:none;border:0;font:inherit;color:inherit;cursor:pointer}
   .card:hover .ph{transform:none}
   .scroll-hint::after{animation:none}
 }
+
+
+/* ============ 서브페이지 공통 ============ */
+.page-hd{padding:clamp(140px,17vw,216px) 0 clamp(36px,5vw,60px)}
+.page-hd .eyebrow{margin-bottom:24px}
+.page-title{font-size:clamp(44px,7vw,110px);line-height:.98;letter-spacing:-.04em;font-weight:700}
+.page-title.sm{font-size:clamp(34px,5.2vw,80px);line-height:1.04}
+.page-title sup{font-family:var(--mono);font-size:.16em;font-weight:400;letter-spacing:.2em;vertical-align:super;color:var(--sub)}
+.page-sub{margin-top:22px;max-width:620px;font-size:16px;color:var(--sub)}
+.crumb{display:inline-flex;gap:8px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:28px;transition:color .25s}
+.crumb:hover{color:var(--ink)}
+section.pb{padding-bottom:clamp(90px,11vw,150px)}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:clamp(20px,3vw,36px) 0 clamp(36px,5vw,56px)}
+.fchip{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;padding:12px 18px;border:1px solid var(--line);color:var(--sub);background:transparent;cursor:pointer;transition:border-color .25s,color .25s,background .25s}
+.lgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,72px) 32px}
+.lcard{display:flex;flex-direction:column;gap:16px}
+.c-img2{position:relative;overflow:hidden;aspect-ratio:16/10}
+.c-img2 .pimg,.c-img2 .ph,.gi .pimg,.gi .ph,.map-ph .ph,.d-hero .pimg,.nextp .pimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c-img2 .pimg{transition:transform .6s ease}
+a.lcard:hover .c-img2 .pimg{transform:scale(1.025)}
+.empty-note{display:none;padding:52px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;color:var(--sub)}
+.d-hero{position:relative;overflow:hidden;aspect-ratio:21/9;min-height:300px;max-width:100%}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 32px;margin:clamp(40px,5vw,64px) 0 0;padding:clamp(28px,4vw,44px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts>div{display:flex;flex-direction:column;gap:8px;margin:0}
+.facts dt{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--sub);text-transform:uppercase}
+.facts dd{font-size:15px;margin:0}
+.d-desc{font-size:16.5px;color:var(--sub);max-width:640px}
+.two{display:grid;grid-template-columns:5fr 7fr;gap:clamp(36px,5vw,72px)}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:clamp(36px,5vw,56px)}
+.gi{position:relative;overflow:hidden;aspect-ratio:4/5}
+.gi.wide{grid-column:1/-1;aspect-ratio:21/9}
+.nextp{position:relative;display:block;overflow:hidden;margin-top:clamp(56px,7vw,96px)}
+.nextp::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,11,.3),rgba(8,9,11,.68))}
+.nextp .in{position:relative;z-index:2;color:#fff;padding:clamp(48px,7vw,96px) clamp(24px,4vw,56px);display:flex;flex-direction:column;gap:12px}
+.nextp .eyebrow{color:rgba(255,255,255,.88)}
+.nextp .eyebrow::before{background:#fff}
+.np-title{font-size:clamp(24px,3.4vw,44px);font-weight:700;letter-spacing:-.02em}
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:clamp(30px,4vw,48px)}
+.pstep{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:10px}
+.pstep i{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--sub)}
+.pstep strong{font-size:clamp(19px,1.9vw,25px);letter-spacing:-.02em}
+.pstep span{font-size:13.5px;color:var(--sub)}
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}
+.cform .full{grid-column:1/-1}
+.cform label{display:flex;flex-direction:column;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub)}
+.cform input,.cform select,.cform textarea{background:transparent;border:1px solid var(--line);color:var(--ink);padding:14px 16px;font:inherit;font-size:15px;width:100%;border-radius:0}
+.cform textarea{min-height:150px;resize:vertical}
+.cform .agree{flex-direction:row;align-items:center;gap:10px;text-transform:none;letter-spacing:.01em;font-family:var(--sans);font-size:13px;color:var(--sub)}
+.cform .agree input{width:16px;height:16px}
+.btn2{display:inline-flex;align-items:center;gap:12px;padding:17px 40px;font-size:12px;font-weight:700;letter-spacing:.2em;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.form-note{margin-top:14px;font-family:var(--mono);font-size:11px;color:var(--sub)}
+.info-list{display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:var(--sub);margin-top:clamp(20px,3vw,32px)}
+.info-list b{font-weight:600;color:var(--ink);margin-right:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em}
+.plc{font-family:var(--mono);font-size:10px;letter-spacing:.08em;border:1px solid var(--line);padding:1px 6px;border-radius:2px;margin-left:8px;color:var(--sub)}
+.map-ph{position:relative;overflow:hidden;aspect-ratio:21/9;min-height:260px;max-width:100%;margin-top:clamp(40px,5vw,64px)}
+.jobs{margin-top:clamp(28px,4vw,44px);border-top:1px solid var(--line)}
+.job{display:grid;grid-template-columns:64px 1fr auto;gap:20px;align-items:baseline;padding:clamp(22px,3vw,34px) 0;border-bottom:1px solid var(--line)}
+.job i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--sub)}
+.job strong{font-size:clamp(18px,2vw,24px);letter-spacing:-.01em}
+.job span{display:block;margin-top:7px;font-size:13.5px;color:var(--sub)}
+.job em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;padding:5px 10px;border:1px solid var(--line);color:var(--sub);white-space:nowrap}
+.sec-note2{margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--sub)}
+.apply{margin-top:clamp(48px,6vw,72px)}
+.page-hd+.about{padding-top:0}
+@media(max-width:900px){.lgrid{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr}.gi{aspect-ratio:16/11}.process{grid-template-columns:1fr}.cform{grid-template-columns:1fr}.two{grid-template-columns:1fr}.job{grid-template-columns:40px 1fr auto}.d-hero{aspect-ratio:16/10}}
+@media(prefers-reduced-motion:reduce){.c-img2 .pimg{transition:none}a.lcard:hover .c-img2 .pimg{transform:none}}
+
+/* ---- 방향별 오버라이드 ---- */
+.page-title,.np-title{font-family:var(--serif);font-weight:500;letter-spacing:.005em}.fchip:hover{border-color:var(--ink);color:var(--ink)}.fchip.on{border-color:var(--ink);background:var(--ink);color:var(--bg)}.btn2{background:transparent;border:1px solid rgba(237,234,228,.5);color:var(--ink)}.btn2:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}.cform input,.cform select,.cform textarea{background:rgba(255,255,255,.02)}
 body{word-break:keep-all;overflow-wrap:break-word}
 .cform input,.cform select,.cform textarea,.fchip{border-color:rgba(237,234,228,0.42)}
 .form-status{font-size:13.5px;color:var(--sub);margin-top:12px}.form-status:empty{display:none}
@@ -249,16 +316,14 @@ body{word-break:keep-all;overflow-wrap:break-word}
 </head>
 <body>
 <a class="skip" href="#main">본문 바로가기</a>
-<h1 class="sr-only">RAUM INC — 라움아이앤씨㈜ · 인테리어 기획·설계·시공 전문회사</h1>
-
 <header class="hd" id="top">
   <div class="wrap hd-in">
-    <a class="logo" href="#top" aria-label="RAUM INC 홈">RAUM<small>INC</small></a>
+    <a class="logo" href="c.html" aria-label="RAUM INC 홈">RAUM<small>INC</small></a>
     <nav class="nav" aria-label="주 메뉴">
-      <a href="c2-about.html">About</a>
-      <a href="c2-work.html">Work</a>
-      <a href="c2-contact.html">Contact</a>
-      <a href="c2-recruit.html">Recruit</a>
+      <a href="c-about.html">About</a>
+      <a href="c-work.html" aria-current="true" style="background-size:100% 1px">Work</a>
+      <a href="c-contact.html">Contact</a>
+      <a href="c-recruit.html">Recruit</a>
     </nav>
     <button class="nav-tg" aria-expanded="false" aria-controls="ovl" aria-label="메뉴 열기">
       <span></span><span></span>
@@ -268,139 +333,47 @@ body{word-break:keep-all;overflow-wrap:break-word}
 
 <div class="ovl" id="ovl" role="dialog" aria-modal="true" aria-label="전체 메뉴">
   <nav>
-    <a href="c2-about.html"><i>01</i>About<em>회사 소개</em></a>
-    <a href="c2-work.html"><i>02</i>Work<em>프로젝트</em></a>
-    <a href="c2-contact.html"><i>03</i>Contact<em>프로젝트 문의</em></a>
-    <a href="c2-recruit.html"><i>04</i>Recruit<em>채용</em></a>
+    <a href="c-about.html"><i>01</i>About<em>회사 소개</em></a>
+    <a href="c-work.html" aria-current="true"><i>02</i>Work<em>프로젝트</em></a>
+    <a href="c-contact.html"><i>03</i>Contact<em>프로젝트 문의</em></a>
+    <a href="c-recruit.html"><i>04</i>Recruit<em>채용</em></a>
   </nav>
   <p class="ovl-ft">RAUM INC · T. 02-〇〇〇-〇〇〇〇 (placeholder)</p>
 </div>
 
 <main id="main">
 
-  <!-- 풀스크린 히어로 : 6초 자동 슬라이드 · hover 정지 · reduced-motion 대응 -->
-  <section class="hero" id="hero" aria-roledescription="carousel" aria-label="대표 프로젝트">
-    <article class="slide act">
-      <img class="pimg" src="images/web/dark/hero-1.jpg" alt="LG Energy Solution Ochang Entral Park">
-      <div class="s-info">
-        <p class="s-eyebrow">Selected Project — Office</p>
-        <h2 class="s-title">LG Energy Solution<br>Ochang Entral Park</h2>
-      </div>
-    </article>
-    <article class="slide">
-      <img class="pimg" loading="lazy" decoding="async" src="images/web/dark/hero-2.jpg" alt="NH Life Seorak Training Center">
-      <div class="s-info">
-        <p class="s-eyebrow">Selected Project — Hospitality</p>
-        <h2 class="s-title">NH Life Seorak<br>Training Center</h2>
-      </div>
-    </article>
-    <article class="slide">
-      <img class="pimg" loading="lazy" decoding="async" src="images/web/dark/hero-3.jpg" alt="DAMG Dong-A Media Center">
-      <div class="s-info">
-        <p class="s-eyebrow">Selected Project — Office</p>
-        <h2 class="s-title">DAMG Dong-A<br>Media Center</h2>
-      </div>
-    </article>
-    <div class="s-ctl">
-      <button class="arr sl-prev" aria-label="이전 슬라이드">&#8592;</button>
-      <span class="sl-count"><span class="sl-cur">01</span> / 03</span>
-      <button class="arr sl-next" aria-label="다음 슬라이드">&#8594;</button>
-      <button class="arr sl-pause" aria-pressed="false" aria-label="자동재생 정지"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="currentColor"><g class="ic-p"><rect x="2" y="1" width="3" height="10"/><rect x="7" y="1" width="3" height="10"/></g><path class="ic-r" d="M3 1l8 5-8 5z" style="display:none"/></svg></button>
-      <div class="s-dots">
-        <button class="dot act" aria-label="1번 슬라이드로 이동"></button>
-        <button class="dot" aria-label="2번 슬라이드로 이동"></button>
-        <button class="dot" aria-label="3번 슬라이드로 이동"></button>
-      </div>
-    </div>
-    <p class="scroll-hint" aria-hidden="true">SCROLL</p>
-  </section>
-
-  <!-- 브랜드 스테이트먼트 -->
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <p class="eyebrow rv">About Raum</p>
-      <h2 class="rv d1">공간은 브랜드를 담는<br><b>가장 정직한 언어</b>입니다.</h2>
-      <p class="rv d2">라움아이앤씨㈜는 인테리어 기획·설계·시공을 하나의 흐름으로 잇는 공간 전문 회사입니다.
-      오피스에서 호스피탈리티, 의료·교육, 주거까지 — 쓰임이 다른 공간마다 그 목적에 맞는
-      기준을 세우고, 첫 도면에서 마감까지 책임 있게 완성합니다.</p>
-      <div class="stats rv" aria-label="회사 수치 — 잠정값">
-        <div class="stat"><i>SINCE</i><strong>2012</strong><span>법인설립 2012.04 기준 · 연혁 2013 표기 확인 필요</span></div>
-        <div class="stat"><i>TEAM</i><strong>65</strong><span>임직원 · 2026 기준</span></div>
-        <div class="stat"><i>PROJECTS</i><strong>〇〇〇+</strong><span>placeholder — 확정 후 반영</span></div>
-      </div>
-      <div class="clients rv d1" aria-label="주요 고객사">
-        <p class="eyebrow">Clients</p>
-        <div class="tick" tabindex="0">
-          <ul>
-            <li>LG Display</li><li>LG화학</li><li>LG CNS</li><li>LG유플러스</li><li>서브원</li><li>파카코리아</li><li>제주 공무원연금공단</li><li>송도 유타대학교</li><li>한국타이어 R&amp;D센터</li><li>동아일보</li><li>덕성여대 예술관</li><li>킨텍스</li><li>코엑스</li><li>LG에너지솔루션</li><li>NH생명</li><li>테라젠헬스</li>
-          </ul>
-          <ul aria-hidden="true">
-            <li>LG Display</li><li>LG화학</li><li>LG CNS</li><li>LG유플러스</li><li>서브원</li><li>파카코리아</li><li>제주 공무원연금공단</li><li>송도 유타대학교</li><li>한국타이어 R&amp;D센터</li><li>동아일보</li><li>덕성여대 예술관</li><li>킨텍스</li><li>코엑스</li><li>LG에너지솔루션</li><li>NH생명</li><li>테라젠헬스</li>
-          </ul>
-        </div>
-      </div>
-      <p class="about-note rv d1">※ 공개 기업정보 기준 — 클라이언트 확인 후 확정</p>
-    </div>
-  </section>
-
-  <!-- SELECTED WORKS : 온-이미지 메타(상시 노출) -->
-  <section class="work" id="work">
-    <div class="wrap">
-      <div class="sec-hd">
-        <h2 class="display rv">Work<sup>(05)</sup></h2>
-        <p class="sec-note rv d1">라움아이앤씨가 완성한 공간<br>Selected Works, 2020 — 2026</p>
-      </div>
-      <div class="wgrid">
-        <a class="card w1 rv" href="c2-work-case.html">
-          <img class="pimg" loading="lazy" decoding="async" src="images/web/dark/hero-1.jpg" alt="LG Energy Solution Ochang Entral Park">
-          <div class="c-ov"><span class="c-idx">No.01</span><div><h3 class="c-title">LG Energy Solution Ochang Entral Park</h3><p class="c-cat">Office · 오피스</p></div></div>
-        </a>
-        <a class="card w2 rv d1" href="c2-work-case.html">
-          <img class="pimg" loading="lazy" decoding="async" src="images/web/dark/hero-2.jpg" alt="NH Life Seorak Training Center">
-          <div class="c-ov"><span class="c-idx">No.02</span><div><h3 class="c-title">NH Life Seorak Training Center</h3><p class="c-cat">Hospitality · 호스피탈리티</p></div></div>
-        </a>
-        <a class="card w3 rv" href="c2-work-case.html">
-          <img class="pimg" loading="lazy" decoding="async" src="images/web/dark/hero-3.jpg" alt="DAMG Dong-A Media Center">
-          <div class="c-ov"><span class="c-idx">No.03</span><div><h3 class="c-title">DAMG Dong-A Media Center</h3><p class="c-cat">Office · 오피스</p></div></div>
-        </a>
-        <a class="card w4 rv d1" href="c2-work-case.html">
-          <img class="pimg" loading="lazy" decoding="async" src="images/web/dark/card-office.jpg" alt="LG Display Twin Tower Smart Office">
-          <div class="c-ov"><span class="c-idx">No.04</span><div><h3 class="c-title">LG Display Twin Tower Smart Office</h3><p class="c-cat">Office · 오피스</p></div></div>
-        </a>
-        <a class="card w5 rv" href="c2-work-case.html">
-          <div class="ph ph-thg" role="img" aria-label="프로젝트 이미지 자리"></div><span class="ph-note">이미지 교체 예정</span>
-          <div class="c-ov"><span class="c-idx">No.05</span><div><h3 class="c-title">Theragen Health</h3><p class="c-cat">Medical · 메디컬</p></div></div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORK BY CATEGORY : 풀와이드 로우 -->
-  <section class="cat" aria-label="분야별 프로젝트">
-    <div class="wrap">
-      <p class="eyebrow rv">Work by Category</p>
-      <div class="cat-list">
-        <a class="cat-row rv" href="c2-work.html?cat=hospitality"><i>01</i><strong>Hospitality<span>호스피탈리티</span></strong><b aria-hidden="true">&#8594;</b></a>
-        <a class="cat-row rv d1" href="c2-work.html?cat=housing"><i>02</i><strong>Housing<span>주거</span></strong><b aria-hidden="true">&#8594;</b></a>
-        <a class="cat-row rv d2" href="c2-work.html?cat=medical"><i>03</i><strong>Medical &amp; Education<span>의료 · 교육</span></strong><b aria-hidden="true">&#8594;</b></a>
-        <a class="cat-row rv d3" href="c2-work.html?cat=office"><i>04</i><strong>Office<span>오피스</span></strong><b aria-hidden="true">&#8594;</b></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT CTA -->
-  <section class="cta" id="contact">
-    <div class="wrap">
-      <p class="eyebrow rv">Contact</p>
-      <h2 class="rv d1">새로운 공간을<br><b>계획하고 계신가요?</b></h2>
-      <a class="cta-btn rv d2" href="c2-contact.html">PROJECT INQUIRY <span aria-hidden="true">&#8594;</span></a>
-      <p class="cta-note rv d3">T. 02-〇〇〇-〇〇〇〇 · E. 〇〇〇@〇〇〇.co.kr — 확정 후 반영 (placeholder)</p>
-    </div>
-  </section>
-
+<section class="page-hd"><div class="wrap">
+  <a class="crumb rv" href="c-work.html"><span aria-hidden="true">&#8592;</span> Back to Work</a>
+  <p class="eyebrow rv">Office · Case</p>
+  <h1 class="page-title sm rv d1">LG Energy Solution<br>Ochang Entral Park</h1>
+  <h2 class="sr-only">프로젝트 정보</h2>
+</div></section>
+<section class="pb"><div class="wrap">
+  <div class="d-hero rv"><img class="pimg" src="images/web/dark/hero-1.jpg" alt="LG Energy Solution Ochang Entral Park — 라운지"></div>
+  <dl class="facts rv">
+    <div><dt>Client</dt><dd>LG Energy Solution</dd></div>
+    <div><dt>Category</dt><dd>Office · 오피스</dd></div>
+    <div><dt>Scope</dt><dd>인테리어 기획 · 설계 · 시공</dd></div>
+    <div><dt>Location</dt><dd>〇〇 <span class="plc">placeholder</span></dd></div>
+    <div><dt>Area</dt><dd>〇〇,〇〇〇㎡ <span class="plc">placeholder</span></dd></div>
+    <div><dt>Year</dt><dd>〇〇〇〇 <span class="plc">placeholder</span></dd></div>
+  </dl>
+  <p class="sec-note2 rv">※ 케이스 상세 템플릿 — 개요 · 수치는 클라이언트 확인 후 확정</p>
+  <div class="gal">
+    <div class="gi rv"><img class="pimg" loading="lazy" decoding="async" src="images/web/dark/card-office.jpg" alt="업무 공간"></div>
+    <div class="gi rv d1"><div class="ph ph-lges"></div><span class="ph-note">이미지 교체 예정 — gallery</span></div>
+    <div class="gi wide rv"><div class="ph ph-damg"></div><span class="ph-note">이미지 교체 예정 — gallery</span></div>
+  </div>
+</div></section>
+<section class="pb"><div class="wrap">
+  <a class="nextp rv" href="c-work.html">
+    <img class="pimg" loading="lazy" decoding="async" src="images/web/dark/hero-2.jpg" alt="">
+    <div class="in"><p class="eyebrow">Next Project</p><strong class="np-title">NH Life Seorak Training Center</strong></div>
+  </a>
+</div></section>
 </main>
 
-<!-- 푸터 -->
 <footer class="ft" id="recruit">
   <div class="wrap">
     <div class="ft-grid">
@@ -412,10 +385,10 @@ body{word-break:keep-all;overflow-wrap:break-word}
       <div>
         <h3>MENU</h3>
         <nav class="ft-menu" aria-label="푸터 메뉴">
-          <a href="c2-about.html">About</a>
-          <a href="c2-work.html">Work</a>
-          <a href="c2-contact.html">Contact</a>
-          <a href="c2-recruit.html">Recruit</a>
+          <a href="c-about.html">About</a>
+          <a href="c-work.html" aria-current="true">Work</a>
+          <a href="c-contact.html">Contact</a>
+          <a href="c-recruit.html">Recruit</a>
         </nav>
       </div>
       <div>
@@ -471,40 +444,6 @@ body{word-break:keep-all;overflow-wrap:break-word}
     items[e.shiftKey ? (i-1+items.length)%items.length : (i+1)%items.length].focus();
   });
 
-  /* 히어로 슬라이더 : 6초 · hover 정지 · reduced-motion 시 자동재생 없음 */
-  var hero = document.querySelector('.hero'),
-      slides = [].slice.call(hero.querySelectorAll('.slide')),
-      dots = [].slice.call(hero.querySelectorAll('.dot')),
-      cur = hero.querySelector('.sl-cur'),
-      N = slides.length, idx = 0, timer = null;
-  function show(n){
-    slides[idx].classList.remove('act'); if(dots[idx]) dots[idx].classList.remove('act');
-    idx = (n + N) % N;
-    slides[idx].classList.add('act'); if(dots[idx]) dots[idx].classList.add('act');
-    if(cur) cur.textContent = ('0' + (idx + 1)).slice(-2);
-  }
-  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
-  function play(){ stop(); if(userPaused || rm.matches || document.hidden) return; timer = setInterval(function(){ show(idx + 1); }, 6000); }
-  hero.addEventListener('mouseenter', stop);
-  hero.addEventListener('mouseleave', play);
-  hero.addEventListener('focusin', stop);
-  hero.addEventListener('focusout', play);
-  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : play(); });
-  if(rm.addEventListener) rm.addEventListener('change', play); else if(rm.addListener) rm.addListener(play);
-  hero.querySelector('.sl-prev').addEventListener('click', function(){ show(idx - 1); play(); });
-  hero.querySelector('.sl-next').addEventListener('click', function(){ show(idx + 1); play(); });
-  dots.forEach(function(d, k){ d.addEventListener('click', function(){ show(k); play(); }); });
-  var pb = hero.querySelector('.sl-pause'), userPaused = false;
-  if(pb) pb.addEventListener('click', function(){
-    userPaused = !userPaused;
-    pb.setAttribute('aria-pressed', String(userPaused));
-    pb.setAttribute('aria-label', userPaused ? '자동재생 재생' : '자동재생 정지');
-    pb.querySelector('.ic-p').style.display = userPaused ? 'none' : '';
-    pb.querySelector('.ic-r').style.display = userPaused ? '' : 'none';
-    if(userPaused){ stop(); } else { play(); }
-  });
-  play();
-
   /* 스크롤 리빌 : threshold 0.05 / rootMargin 0px 0px -8% 0px */
   var els = [].slice.call(document.querySelectorAll('.rv'));
   if('IntersectionObserver' in window && !rm.matches){
@@ -519,5 +458,23 @@ body{word-break:keep-all;overflow-wrap:break-word}
   }
 })();
 </script>
+<script>(function(){
+  var chips=[].slice.call(document.querySelectorAll('.fchip'));
+  if(chips.length){
+    var cards=[].slice.call(document.querySelectorAll('.lcard'));
+    var empty=document.querySelector('.empty-note');
+    var apply=function(cat){
+      chips.forEach(function(c){c.classList.toggle('on',c.getAttribute('data-cat')===cat);});
+      var n=0;
+      cards.forEach(function(k){var s=cat==='all'||k.getAttribute('data-cat')===cat;k.style.display=s?'':'none';if(s)n++;});
+      if(empty)empty.style.display=n?'none':'block';
+    };
+    chips.forEach(function(c){c.addEventListener('click',function(){apply(this.getAttribute('data-cat'));});});
+    var q=null;try{q=new URLSearchParams(location.search).get('cat');}catch(e){}
+    apply(q&&['hospitality','housing','medical','office'].indexOf(q)>-1?q:'all');
+  }
+  var cf=document.querySelector('.cform');
+  if(cf)cf.addEventListener('submit',function(e){e.preventDefault();});
+})();</script>
 </body>
 </html>
